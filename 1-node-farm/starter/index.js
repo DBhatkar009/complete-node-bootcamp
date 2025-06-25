@@ -34,13 +34,23 @@ const url = require('url');
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Server
 
+ const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8'); 
+            const dataObj = JSON.parse(data);
+
 const server = http.createServer((req, res) => {
     console.log(req.url);
     const pathName = req.url;
     if(pathName === '/' || pathName === '/overview'){
+
         res.end('You are on OVERVIEW!'); 
     } else if(pathName === '/product'){
+
         res.end('You are on PRODUCT!');
+    } else if(pathName === '/Api') {
+            res.writeHead(202, {'Content-type': 'Application/json'});
+            res.end(data);
+   
+
     } else {
         res.writeHead(404, {
             'Content-type': 'text/html',
