@@ -1,7 +1,9 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
-//////////////////////////////////////////////////////////////////////////////////////////////
+const replaceElement = require('./modules/replaceElement');
+// nodemon package added
+//////('./modules/replaceElement'//////////////////////////////////////////////////////////////////////////
 // Files
 //Blocking, synchronous way 
 // const textIn = fs.readFileSync("./txt/input.txt", 'utf-8');
@@ -33,20 +35,6 @@ const url = require('url');
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Server
-
-const replaceElement = (temp, product) => {
-   let output = temp.replace(/{%PRODUCT_NAME%}/g, product.productName);
-   output = output.replace(/{%IMAGE%}/g, product.image);
-   output = output.replace(/{%PRICE%}/g, product.price);
-   output = output.replace(/{%QUANTITY%}/g, product.quantity);
-   output = output.replace(/{%DESCRIPTION%}/g, product.description);
-   output = output.replace(/{%VITAMIN-A & VITAMIN-B%}/g, product.nutrients);
-   output = output.replace(/{%ID%}/g, product.id);
-   output = output.replace(/{%FROM%}/g, product.from);
-
-   if(!product.organic) output = output.replace(/{%NOT_ORGANIC%}/g, 'not-organic'); 
-   return output;
-}
 
 const tempOverview = fs.readFileSync(`${__dirname}/templates/template-overview.html`, 'utf-8'); 
 const tempCard = fs.readFileSync(`${__dirname}/templates/template-card.html`, 'utf-8'); 

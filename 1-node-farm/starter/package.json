@@ -1,0 +1,26 @@
+{
+  "name": "node-farm-web",
+  "version": "5.0.0",
+  "description": "",
+  "homepage": "https://github.com/DBhatkar009/complete-node-bootcamp#readme",
+  "bugs": {
+    "url": "https://github.com/DBhatkar009/complete-node-bootcamp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBhatkar009/complete-node-bootcamp.git"
+  },
+  "license": "ISC",
+  "author": "Dhananjay bhatkar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
