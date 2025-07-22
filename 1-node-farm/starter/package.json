@@ -1,0 +1,20 @@
+{
+  "name": "node-farm-web",
+  "version": "5.0.0",
+  "description": "",
+  "homepage": "https://github.com/DBhatkar009/complete-node-bootcamp#readme",
+  "bugs": {
+    "url": "https://github.com/DBhatkar009/complete-node-bootcamp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBhatkar009/complete-node-bootcamp.git"
+  },
+  "license": "ISC",
+  "author": "Dhananjay bhatkar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
