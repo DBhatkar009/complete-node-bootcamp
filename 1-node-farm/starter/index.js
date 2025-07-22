@@ -56,29 +56,30 @@ const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data); 
 
 const server = http.createServer((req, res) => {
-    const pathName = req.url;
-    // console.log(req.url);
+    const {query, pathname} = url.parse(req.url, true);
 
     //Overview Page
-    if(pathName === '/' || pathName === '/overview'){
+    if(pathname === '/' || pathname === '/overview'){
         res.writeHead(200, {'Content-type': 'text/html'});
  
     const cardHolder = dataObj.map(el => replaceElement(tempCard, el)).join('');
     const output = tempOverview.replace(`{%PRODUCT_CARD%}`, cardHolder);  
-      console.log(cardHolder);
-      
         res.end(output); 
 
     //Product page   
-    } else if(pathName === '/product'){
+    } else if(pathname === '/product'){
         res.writeHead(200, {'Content-type': 'text/html'});
-        res.end(tempProduct);
+        const product = dataObj[query.id];
+        const output = replaceElement(tempProduct, product);
+        res.end(output);
    
     //Api    
-    } else if(pathName === '/api') {
+    } else if(pathname === '/api') {
         res.writeHead(200, {'Content-type': 'application/json'});
          res.end(data)
-    } else {
+    } 
+    //Not Found
+    else {
         res.writeHead(404, {
             'Content-type': 'text/html',
             'my-own-header': 'This is Node.js Server!'
