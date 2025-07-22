@@ -2,6 +2,7 @@ const fs = require('fs');
 const http = require('http');
 const url = require('url');
 const replaceElement = require('./modules/replaceElement');
+// nodemon package added
 //////('./modules/replaceElement'//////////////////////////////////////////////////////////////////////////
 // Files
 //Blocking, synchronous way 
